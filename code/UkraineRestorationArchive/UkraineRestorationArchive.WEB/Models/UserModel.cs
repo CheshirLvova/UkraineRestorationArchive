@@ -10,7 +10,7 @@ namespace UkraineRestorationArchive.WEB.Models
     {
         [Display(Name = "Username")]
         public string UserName { get; set; }
-        [Display(Name = "Email Addres")]
+        [Display(Name = "Email Address")]
         [DataType(DataType.EmailAddress)]
         public string EmailAddres { get; set; }
         [DataType(DataType.Password)]
