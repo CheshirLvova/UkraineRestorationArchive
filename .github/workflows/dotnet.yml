@@ -21,5 +21,7 @@ jobs:
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: 6.0.x
+      - name: Restore dependencies
+        run: dotnet restore ./code/UkraineRestorationArchive/UkraineRestorationArchive.sln
       - name: Build UkraineRestorationArchive
-        run: dotnet build --configuration ./code/UkraineRestorationArchive/UkraineRestorationArchive.sln
+        run: dotnet build --configuration Release ./code/UkraineRestorationArchive/UkraineRestorationArchive.WEB
