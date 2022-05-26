@@ -21,7 +21,14 @@ jobs:
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: 6.0.x
+      - name: Build UkraineRestorationArchive.BLL
+        run: dotnet build --configuration ./code/UkraineRestorationArchive/UkraineRestorationArchive.BLL
       
+      - name: Build UkraineRestorationArchive.DAL
+        run: dotnet build --configuration ./code/UkraineRestorationArchive/UkraineRestorationArchive.DAL
+        
+      - name: Build UkraineRestorationArchive.DB
+        run: dotnet build --configuration ./code/UkraineRestorationArchive/UkraineRestorationArchive.DB
 
       - name: Build UkraineRestorationArchive.WEB
         run: dotnet build --configuration ./code/UkraineRestorationArchive/UkraineRestorationArchive.WEB
