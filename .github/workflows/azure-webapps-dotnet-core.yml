@@ -8,7 +8,7 @@ env:
 on:
   push:
     branches:
-      - [CheshirLvova-patch-1]
+      - CheshirLvova-patch-1
 
 jobs:
   build:
