@@ -1,0 +1,31 @@
+name: Tests for Ukraine-Restoration-Archive 
+
+env:
+  AZURE_WEBAPP_NAME: Ukraine-Restoration-Archive    # set this to the name of your Azure Web App
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '6'                 # set this to the .NET Core version to use
+
+on:
+  push:
+    branches:
+      - [CheshirLvova-patch-1]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.x
+      - name: Restore dependencies
+        run: dotnet restore ./code/UkraineRestorationArchive/UkraineRestorationArchive.sln
+
+      - name: Build UnitTests
+        run: dotnet build --configuration Release ./code/UkraineRestorationArchive/UnitTests
+
+      - name: Run tests in UnitTests
+        run: dotnet test ./code/UkraineRestorationArchive/UnitTests
